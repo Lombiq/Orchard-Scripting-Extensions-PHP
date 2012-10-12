@@ -1,0 +1,24 @@
+﻿@model OrchardHUN.Scripting.Php.ViewModels.TestBedViewModel
+           
+@{
+    Style.Require("ScriptingPhpAdmin");
+}
+
+<h1>@Html.TitleForPage(T("PHP scripting testbed"))</h1>
+
+<div id="orchardhun-scripting-php-testbed">
+    @using (Html.BeginFormAntiForgeryPost())
+    {
+        @Html.TextAreaFor(m => m.Code)
+        <span class="hint">@T("Test your PHP code here. You don't need to use the opening or closing PHP tags (<?php, ?>).")</span>
+        <input type="submit" class="button" value="@T("Run")" />
+    }
+
+    @if (!String.IsNullOrEmpty(Model.Output))
+    {
+    <div id="orchardhun-scripting-php-testbed-output">
+        <h2>@T("Output:")</h2>
+        @Html.Raw(Model.Output)
+    </div>
+    }
+</div>
