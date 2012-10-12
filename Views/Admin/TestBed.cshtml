@@ -10,7 +10,7 @@
     @using (Html.BeginFormAntiForgeryPost())
     {
         @Html.TextAreaFor(m => m.Code)
-        <span class="hint">@T("Test your PHP code here. You don't need to use the opening or closing PHP tags (<?php, ?>).")</span>
+        <span class="hint">@T("Test your PHP code here. You don't need to use the opening or closing PHP tags (&#60;?php, ?&#62;).")</span>
         <input type="submit" class="button" value="@T("Run")" />
     }
 
