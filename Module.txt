@@ -1,0 +1,13 @@
+﻿Name: PHP scripting
+AntiForgery: enabled
+Author: The Orchard Hungary Team
+Website: http://orchardphpscripting.codeplex.com
+Version: 1.0
+OrchardVersion: 1.5
+Description: Enables Orchard scripting through PHP. Uses Phalanger (http://phalanger.codeplex.com/).
+Features:
+    OrchardHUN.Scripting.Php:
+		Name: PHP scripting
+        Description: Enables Orchard scripting through PHP. Uses Phalanger (http://phalanger.codeplex.com/).
+		Category: Scripting
+		Dependencies: Navigation
