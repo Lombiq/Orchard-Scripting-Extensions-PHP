@@ -123,6 +123,8 @@
     <Compile Include="AdminMenu.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="ResourceManifest.cs" />
+    <Compile Include="Services\IScriptingManager.cs" />
+    <Compile Include="Services\IScriptingRuntime.cs" />
     <Compile Include="ViewModels\TestBedViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
