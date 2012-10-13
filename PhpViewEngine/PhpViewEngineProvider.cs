@@ -21,12 +21,14 @@ namespace OrchardHUN.Scripting.Php.PhpViewEngine
 
         public IViewEngine CreateThemeViewEngine(CreateThemeViewEngineParams parameters)
         {
-            var partialViewLocationFormats = new[] {
-                parameters.VirtualPath + "/Views/{0}.php",
+            var partialViewLocationFormats = new[]
+            {
+                parameters.VirtualPath + "/Views/{0}.php"
             };
 
-            var areaPartialViewLocationFormats = new[] {
-                parameters.VirtualPath + "/Views/{2}/{1}/{0}.php",
+            var areaPartialViewLocationFormats = new[]
+            {
+                parameters.VirtualPath + "/Views/{2}/{1}/{0}.php"
             };
 
             var viewEngine = new PhpViewEngine()
@@ -45,16 +47,19 @@ namespace OrchardHUN.Scripting.Php.PhpViewEngine
 
         public IViewEngine CreateModulesViewEngine(CreateModulesViewEngineParams parameters)
         {
-            var areaFormats = new[] {
-                                        "~/Core/{2}/Views/{1}/{0}.php",
-                                        "~/Modules/{2}/Views/{1}/{0}.php",
-                                        "~/Themes/{2}/Views/{1}/{0}.php",
-                                    };
+            var areaFormats = new[]
+            {
+                "~/Core/{2}/Views/{1}/{0}.php",
+                "~/Modules/{2}/Views/{1}/{0}.php",
+                "~/Themes/{2}/Views/{1}/{0}.php",
+            };
 
             var universalFormats = parameters.VirtualPaths
-                .SelectMany(x => new[] {
-                                           x + "/Views/{0}.php",
-                                       })
+                .SelectMany(
+                    x => new[]
+                        {
+                            x + "/Views/{0}.php",
+                        })
                 .ToArray();
 
             var viewEngine = new PhpViewEngine()
