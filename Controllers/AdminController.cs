@@ -8,6 +8,7 @@ using Orchard.UI.Notify;
 using OrchardHUN.Scripting.Exceptions;
 using OrchardHUN.Scripting.Php.ViewModels;
 using OrchardHUN.Scripting.Services;
+using Orchard.Settings;
 
 namespace OrchardHUN.Scripting.Php.Controllers
 {
@@ -46,14 +47,6 @@ namespace OrchardHUN.Scripting.Php.Controllers
         [HttpPost/*, ValidateInput(false)*/]
         public ActionResult TestBed(TestBedViewModel viewModel)
         {
-            /*
-             * Some test code here
-             * 
-             * echo "Yes, this is PHP from Orchard.";
-             * echo $_ORCHARD['WORK_CONTEXT']->CurrentSite->SiteName;
-             * echo str_replace(array("don't", "ridiculous"), array("do", "awesome"), "I don't want to run PHP from Orchard, this is ridiculous.");
-             */
-
             if (!String.IsNullOrEmpty(viewModel.Code))
             {
                 try
