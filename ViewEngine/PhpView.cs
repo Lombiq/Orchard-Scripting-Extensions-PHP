@@ -22,7 +22,6 @@ namespace OrchardHUN.Scripting.Php.ViewEngine
             MasterPath = masterPath;
         }
 
-
         public void Render(ViewContext context, TextWriter writer)
         {
             var filename = context.HttpContext.Server.MapPath(ViewPath);

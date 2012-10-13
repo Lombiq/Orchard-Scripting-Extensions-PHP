@@ -1,5 +1,4 @@
-﻿
-namespace OrchardHUN.Scripting.Php.ViewModels
+﻿namespace OrchardHUN.Scripting.Php.ViewModels
 {
     public class TestBedViewModel
     {

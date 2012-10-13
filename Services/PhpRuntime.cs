@@ -26,23 +26,23 @@ namespace OrchardHUN.Scripting.Php.Services
 
         public dynamic ExecuteExpression(string expression, ScriptScope scope)
         {
-            return 
+            return
                 RunPhpExecutor(
                     requestContext =>
                     {
                         DynamicCode.Eval(
                             expression,
-                            false,/*phalanger internal stuff*/
+                            false,      // phalanger internal stuff
                             requestContext.ScriptContext,
-                            null,/*local variables*/
-                            null,/*reference to "$this"*/
-                            null,/*current class context*/
-                            scope.Name,/*file name, used for debug and cache key*/
-                            1, 1,/*position in the file used for debug and cache key*/
-                            -1,/*something internal*/
-                            null/*current namespace, used in CLR mode*/
+                            null,       // local variables
+                            null,       // reference to "$this"
+                            null,       // current class context
+                            scope.Name, // file name, used for debug and cache key
+                            1, 1,       // position in the file used for debug and cache key
+                            -1,         // something internal
+                            null        // current namespace, used in CLR mode
                         );
-                    }, 
+                    },
                     scope);
         }
 
@@ -78,7 +78,7 @@ namespace OrchardHUN.Scripting.Php.Services
                             }
 
                             // Setting globals like this only works for primitive types.
-                            //Operators.SetVariable(scriptContext, null, "test", "");
+                            // Operators.SetVariable(scriptContext, null, "test", "");
 
                             executor(requestContext);
 
