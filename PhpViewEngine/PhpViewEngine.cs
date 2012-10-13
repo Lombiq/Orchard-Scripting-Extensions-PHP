@@ -2,20 +2,19 @@ using System.Web.Mvc;
 
 namespace OrchardHUN.Scripting.Php.PhpViewEngine
 {
-    public class PhpViewEngine : VirtualPathProviderViewEngine, IViewEngine
+    public class PhpViewEngine : BuildManagerViewEngine
     {
         public PhpViewEngine()
         {
-            base.ViewLocationFormats = new string[] { "~/Views/{1}/{0}.php" };
-            base.PartialViewLocationFormats = base.ViewLocationFormats;
+            FileExtensions = new[] { "php" };
         }
 
-        protected override IView CreateView(ControllerContext context, string viewPath, string masterPath)
+        protected override IView CreateView(ControllerContext controllerContext, string viewPath, string masterPath)
         {
             return new PhpView(viewPath, masterPath);
         }
 
-        protected override IView CreatePartialView(ControllerContext context, string partialPath)
+        protected override IView CreatePartialView(ControllerContext controllerContext, string partialPath)
         {
             return new PhpView(partialPath, "");
         }
