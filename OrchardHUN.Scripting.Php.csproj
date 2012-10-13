@@ -115,18 +115,19 @@
       <Project>{9916839C-39FC-4CEB-A5AF-89CA7E87119F}</Project>
       <Name>Orchard.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OrchardHUN.Scripting\OrchardHUN.Scripting.csproj">
+      <Project>{C8715027-A8C5-45DC-8A22-FB713AF14468}</Project>
+      <Name>OrchardHUN.Scripting</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminMenu.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="PhpViewEngine\PhpView.cs" />
-    <Compile Include="PhpViewEngine\PhpViewEngine.cs" />
-    <Compile Include="PhpViewEngine\PhpViewEngineProvider.cs" />
     <Compile Include="ResourceManifest.cs" />
+    <Compile Include="Services\PhpRuntime.cs" />
     <Compile Include="ViewModels\TestBedViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
