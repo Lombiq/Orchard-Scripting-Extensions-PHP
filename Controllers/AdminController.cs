@@ -8,7 +8,6 @@ using Orchard.UI.Notify;
 using OrchardHUN.Scripting.Exceptions;
 using OrchardHUN.Scripting.Php.ViewModels;
 using OrchardHUN.Scripting.Services;
-using Orchard.Settings;
 
 namespace OrchardHUN.Scripting.Php.Controllers
 {

@@ -1,12 +1,8 @@
-using System;
-using System.Collections;
 using System.IO;
 using System.Web.Mvc;
-using PHP.Core;
-using PHP.Core.Reflection;
-using OrchardHUN.Scripting.Php.Services;
-using OrchardHUN.Scripting.Models;
 using Orchard.Environment.Extensions;
+using OrchardHUN.Scripting.Models;
+using OrchardHUN.Scripting.Php.Services;
 
 namespace OrchardHUN.Scripting.Php.ViewEngine
 {
