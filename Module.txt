@@ -10,4 +10,4 @@ Features:
 		Name: PHP scripting
         Description: Enables Orchard scripting through PHP. Uses Phalanger (http://phalanger.codeplex.com/).
 		Category: Scripting
-		Dependencies: Navigation
+		Dependencies: OrchardHUN.Scripting, Navigation

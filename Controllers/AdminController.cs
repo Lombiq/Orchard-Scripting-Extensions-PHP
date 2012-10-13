@@ -52,10 +52,6 @@ namespace OrchardHUN.Scripting.Php.Controllers
 
             if (!String.IsNullOrEmpty(viewModel.Code))
             {
-                Assembly.Load(new AssemblyName("php4ts"));
-                Assembly.Load(new AssemblyName("php5ts"));
-                Assembly.Load(new AssemblyName("PhpNetClassLibrary"));
-                Assembly.Load(new AssemblyName("PhpNetXmlDom"));
                 try
                 {
                     var scriptName = "testbed.php";
