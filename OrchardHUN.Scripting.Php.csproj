@@ -122,6 +122,9 @@
   <ItemGroup>
     <Compile Include="AdminMenu.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="PhpViewEngine\PhpView.cs" />
+    <Compile Include="PhpViewEngine\PhpViewEngine.cs" />
+    <Compile Include="PhpViewEngine\PhpViewEngineProvider.cs" />
     <Compile Include="ResourceManifest.cs" />
     <Compile Include="Services\IScriptingManager.cs" />
     <Compile Include="Services\IScriptingRuntime.cs" />
