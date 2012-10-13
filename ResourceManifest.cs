@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Orchard.UI.Resources;
+﻿using Orchard.UI.Resources;
 
 namespace OrchardHUN.Scripting.Php
 {

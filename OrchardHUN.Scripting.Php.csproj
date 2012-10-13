@@ -122,7 +122,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminMenu.cs" />
@@ -131,6 +130,7 @@
     <Compile Include="PhpViewEngine\PhpViewEngine.cs" />
     <Compile Include="PhpViewEngine\PhpViewEngineProvider.cs" />
     <Compile Include="ResourceManifest.cs" />
+    <Compile Include="Services\PhpRuntime.cs" />
     <Compile Include="ViewModels\TestBedViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
