@@ -10,7 +10,7 @@ Features:
 		Name: Orchard Scripting Extensions: PHP
         Description: Enables Orchard scripting through PHP. Uses Phalanger (http://phalanger.codeplex.com/).
 		Category: Scripting
-		Dependencies: OrchardHUN.Scripting, Navigation
+		Dependencies: OrchardHUN.Scripting
 	OrchardHUN.Scripting.Php.ViewEngine:
 		Name: Orchard Scripting Extensions: PHP View Engine
         Description: Inspired by the ASP.NET MVC PHP View Engine (http://phpviewengine.codeplex.com/).
