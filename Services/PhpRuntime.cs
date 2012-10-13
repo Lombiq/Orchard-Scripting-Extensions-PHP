@@ -82,6 +82,11 @@ namespace OrchardHUN.Scripting.Php.Services
 
                             executor(requestContext);
 
+                            foreach (var variable in scriptContext.GlobalVariables)
+                            {
+                                scope.SetVariable(variable.Key.ToString(), variable.Value);
+                            }
+
                             scriptContext.Output.Flush();
                             scriptContext.OutputStream.Position = 0;
                             using (var streamReader = new StreamReader(scriptContext.OutputStream))
