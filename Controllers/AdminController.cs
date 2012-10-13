@@ -1,21 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Orchard.UI.Admin;
 using Orchard;
-using PHP.Core;
-using System.IO;
-using OrchardHUN.Scripting.Php.ViewModels;
-using Orchard.UI.Notify;
 using Orchard.Localization;
-using System.Reflection;
-using OrchardHUN.Scripting.Services;
+using Orchard.UI.Admin;
+using Orchard.UI.Notify;
 using OrchardHUN.Scripting.Exceptions;
-using OrchardHUN.Scripting.Models;
-using Orchard.Environment;
-using System.Diagnostics;
+using OrchardHUN.Scripting.Php.ViewModels;
+using OrchardHUN.Scripting.Services;
 
 namespace OrchardHUN.Scripting.Php.Controllers
 {
@@ -60,7 +52,6 @@ namespace OrchardHUN.Scripting.Php.Controllers
 
             if (!String.IsNullOrEmpty(viewModel.Code))
             {
-                var sw = Stopwatch.StartNew();
                 try
                 {
                     using (var scope = _scriptingManager.CreateScope("testbed"))
@@ -82,9 +73,6 @@ namespace OrchardHUN.Scripting.Php.Controllers
                         + Environment.NewLine + Environment.NewLine 
                         + "Details:" + Environment.NewLine + "{1}", ex.Message, ex.InnerException.Message));
                 }
-
-                sw.Stop();
-                var s = sw.Elapsed;
             }
 
             return View((object)viewModel);
