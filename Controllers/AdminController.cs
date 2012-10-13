@@ -33,6 +33,10 @@ namespace OrchardHUN.Scripting.Php.Controllers
             T = NullLocalizer.Instance;
         }
 
+        public ActionResult Test()
+        {
+            return View();
+        }
 
         public ActionResult TestBed()
         {
