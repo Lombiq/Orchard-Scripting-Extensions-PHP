@@ -2,11 +2,11 @@ using System.Web.Mvc;
 
 namespace OrchardHUN.Scripting.Php.PhpViewEngine
 {
-    public class PhpViewEngine : BuildManagerViewEngine
+    public class PhpViewEngine : VirtualPathProviderViewEngine
     {
         public PhpViewEngine()
         {
-            FileExtensions = new[] { "php" };
+            FileExtensions = new[] { ".php" };
         }
 
         protected override IView CreateView(ControllerContext controllerContext, string viewPath, string masterPath)
