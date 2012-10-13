@@ -115,6 +115,10 @@
       <Project>{9916839C-39FC-4CEB-A5AF-89CA7E87119F}</Project>
       <Name>Orchard.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OrchardHUN.Scripting\OrchardHUN.Scripting.csproj">
+      <Project>{C8715027-A8C5-45DC-8A22-FB713AF14468}</Project>
+      <Name>OrchardHUN.Scripting</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
