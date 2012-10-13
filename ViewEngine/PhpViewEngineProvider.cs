@@ -6,18 +6,29 @@ using Orchard.DisplayManagement.Descriptors.ShapeTemplateStrategy;
 using Orchard.Logging;
 using Orchard.Mvc.ViewEngines;
 using Orchard.Mvc.ViewEngines.WebForms;
+using OrchardHUN.Scripting.Services;
+using Orchard.Environment;
+using OrchardHUN.Scripting.Php.Services;
+using Orchard.Environment.Extensions;
 
-namespace OrchardHUN.Scripting.Php.PhpViewEngine
+namespace OrchardHUN.Scripting.Php.ViewEngine
 {
+    [OrchardFeature("OrchardHUN.Scripting.Php.ViewEngine")]
     public class PhpViewEngineProvider : IViewEngineProvider, IShapeTemplateViewEngine
     {
-        public ILogger Logger { get; set; }
-        static readonly string[] DisabledFormats = new[] { "~/Disabled" };
+        private readonly Work<IPhpRuntime> _phpRuntimeWork;
+        private static readonly string[] DisabledFormats = new[] { "~/Disabled" };
 
-        public PhpViewEngineProvider()
+        public ILogger Logger { get; set; }
+
+
+        public PhpViewEngineProvider(Work<IPhpRuntime> phpRuntimeWork)
         {
+            _phpRuntimeWork = phpRuntimeWork;
+
             Logger = NullLogger.Instance;
         }
+
 
         public IViewEngine CreateThemeViewEngine(CreateThemeViewEngineParams parameters)
         {
@@ -31,7 +42,7 @@ namespace OrchardHUN.Scripting.Php.PhpViewEngine
                 parameters.VirtualPath + "/Views/{2}/{1}/{0}.php"
             };
 
-            var viewEngine = new PhpViewEngine()
+            var viewEngine = new PhpViewEngine(_phpRuntimeWork)
             {
                 MasterLocationFormats = DisabledFormats,
                 ViewLocationFormats = DisabledFormats,
@@ -62,7 +73,7 @@ namespace OrchardHUN.Scripting.Php.PhpViewEngine
                         })
                 .ToArray();
 
-            var viewEngine = new PhpViewEngine()
+            var viewEngine = new PhpViewEngine(_phpRuntimeWork)
             {
                 MasterLocationFormats = DisabledFormats,
                 ViewLocationFormats = universalFormats,
@@ -77,7 +88,7 @@ namespace OrchardHUN.Scripting.Php.PhpViewEngine
 
         public IViewEngine CreateBareViewEngine()
         {
-            return new PhpViewEngine()
+            return new PhpViewEngine(_phpRuntimeWork)
             {
                 MasterLocationFormats = DisabledFormats,
                 ViewLocationFormats = DisabledFormats,

@@ -63,7 +63,6 @@ namespace OrchardHUN.Scripting.Php.Controllers
                         var orchardGlobal = new Dictionary<string, object>();
                         orchardGlobal["WORK_CONTEXT"] = _workContextAccessor.GetContext();
                         orchardGlobal["ORCHARD_SERVICES"] = _orchardServices;
-                        orchardGlobal["OUTPUT"] = "";
 
                         scope.SetVariable("_ORCHARD", orchardGlobal);
 

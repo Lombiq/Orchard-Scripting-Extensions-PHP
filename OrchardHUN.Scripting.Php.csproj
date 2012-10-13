@@ -126,10 +126,11 @@
   <ItemGroup>
     <Compile Include="AdminMenu.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="PhpViewEngine\PhpView.cs" />
-    <Compile Include="PhpViewEngine\PhpViewEngine.cs" />
-    <Compile Include="PhpViewEngine\PhpViewEngineProvider.cs" />
+    <Compile Include="ViewEngine\PhpView.cs" />
+    <Compile Include="ViewEngine\PhpViewEngine.cs" />
+    <Compile Include="ViewEngine\PhpViewEngineProvider.cs" />
     <Compile Include="ResourceManifest.cs" />
+    <Compile Include="Services\IPhpRuntime.cs" />
     <Compile Include="Services\PhpRuntime.cs" />
     <Compile Include="ViewModels\TestBedViewModel.cs" />
   </ItemGroup>
