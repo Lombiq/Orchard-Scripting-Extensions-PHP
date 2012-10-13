@@ -6,6 +6,7 @@ using OrchardHUN.Scripting.Exceptions;
 using OrchardHUN.Scripting.Models;
 using OrchardHUN.Scripting.Services;
 using PHP.Core;
+using PHP.Library;
 
 namespace OrchardHUN.Scripting.Php.Services
 {
@@ -28,7 +29,8 @@ namespace OrchardHUN.Scripting.Php.Services
         {
             try
             {
-                ApplicationContext.Default.AssemblyLoader.Load(Assembly.Load(new AssemblyName("PhpNetClassLibrary")), null);
+                // Just selecting a class to access the assembly.
+                ApplicationContext.Default.AssemblyLoader.Load(typeof(PhpHash).Assembly, null);
                 var workContext = _wcaWork.Value.GetContext();
                 using (var requestContext = RequestContext.Initialize(ApplicationContext.Default, workContext.HttpContext.ApplicationInstance.Context))
                 {
