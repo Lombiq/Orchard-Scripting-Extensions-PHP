@@ -15,7 +15,6 @@ namespace OrchardHUN.Scripting.Php.Controllers
     public class AdminController : Controller
     {
         private readonly IScriptingManager _scriptingManager;
-        private readonly IWorkContextAccessor _workContextAccessor;
         private readonly IOrchardServices _orchardServices;
 
         public Localizer T { get; set; }
@@ -23,11 +22,9 @@ namespace OrchardHUN.Scripting.Php.Controllers
 
         public AdminController(
             IScriptingManager scriptingManager,
-            IWorkContextAccessor workContextAccessor,
             IOrchardServices orchardServices)
         {
             _scriptingManager = scriptingManager;
-            _workContextAccessor = workContextAccessor;
             _orchardServices = orchardServices;
 
             T = NullLocalizer.Instance;
@@ -52,12 +49,6 @@ namespace OrchardHUN.Scripting.Php.Controllers
                 {
                     using (var scope = _scriptingManager.CreateScope("testbed"))
                     {
-                        var orchardGlobal = new Dictionary<string, object>();
-                        orchardGlobal["WORK_CONTEXT"] = _workContextAccessor.GetContext();
-                        orchardGlobal["ORCHARD_SERVICES"] = _orchardServices;
-
-                        scope.SetVariable("_ORCHARD", orchardGlobal);
-
                         viewModel.Output = _scriptingManager.ExecuteExpression("PHP", viewModel.Code, scope);
                     }
                 }

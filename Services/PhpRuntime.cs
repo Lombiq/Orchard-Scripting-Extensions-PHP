@@ -6,6 +6,7 @@ using OrchardHUN.Scripting.Exceptions;
 using OrchardHUN.Scripting.Models;
 using PHP.Core;
 using PHP.Library;
+using System.Collections.Generic;
 
 namespace OrchardHUN.Scripting.Php.Services
 {
@@ -72,6 +73,12 @@ namespace OrchardHUN.Scripting.Php.Services
                     {
                         using (scriptContext.Output = new StreamWriter(scriptContext.OutputStream))
                         {
+                            var orchardGlobal = new Dictionary<string, object>();
+                            orchardGlobal["WORK_CONTEXT"] = workContext;
+                            orchardGlobal["ORCHARD_SERVICES"] = workContext.Resolve<IOrchardServices>();
+
+                            scope.SetVariable("_ORCHARD", orchardGlobal);
+
                             foreach (var item in scope.Variables)
                             {
                                 scriptContext.Globals.TrySetMember(item.Key, item.Value);
