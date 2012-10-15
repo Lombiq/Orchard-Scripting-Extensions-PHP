@@ -7,6 +7,9 @@ using OrchardHUN.Scripting.Models;
 using PHP.Core;
 using PHP.Library;
 using System.Collections.Generic;
+using System.Web;
+using System.Web.Mvc;
+using Orchard.Core.Common;
 
 namespace OrchardHUN.Scripting.Php.Services
 {
@@ -62,10 +65,19 @@ namespace OrchardHUN.Scripting.Php.Services
         {
             try
             {
-                // Just selecting a class to access the assembly.
+                // Just selecting classes to load assemblies into the runtime.
                 // Other .NET assemblies can be loaded the same way, so PHP code can access them.
-                ApplicationContext.Default.AssemblyLoader.Load(typeof(PhpHash).Assembly, null);
+                var assemblyLoader = ApplicationContext.Default.AssemblyLoader;
+                assemblyLoader.Load(typeof(PhpHash).Assembly, null); // PhpNetClassLibrary.dll
+                assemblyLoader.Load(typeof(string).Assembly, null); // mscorlib.dll
+                assemblyLoader.Load(typeof(Uri).Assembly, null); // System.dll
+                assemblyLoader.Load(typeof(HttpContext).Assembly, null); // System.Web.dll
+                assemblyLoader.Load(typeof(AjaxHelper).Assembly, null); // System.Web.Mvc.dll
+                assemblyLoader.Load(typeof(Shapes).Assembly, null); // Orchard Core
+                assemblyLoader.Load(typeof(WorkContext).Assembly, null); // Orchard Framework
+
                 var workContext = _wcaWork.Value.GetContext();
+
                 using (var requestContext = RequestContext.Initialize(ApplicationContext.Default, workContext.HttpContext.ApplicationInstance.Context))
                 {
                     var scriptContext = requestContext.ScriptContext;
