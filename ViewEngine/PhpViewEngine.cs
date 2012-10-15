@@ -13,7 +13,7 @@ namespace OrchardHUN.Scripting.Php.ViewEngine
         public PhpViewEngine(Work<IPhpRuntime> phpRuntimeWork)
         {
             _phpRuntimeWork = phpRuntimeWork;
-            FileExtensions = new[] { ".php" };
+            FileExtensions = new[] { "php" };
         }
 
         protected override IView CreateView(ControllerContext controllerContext, string viewPath, string masterPath)
