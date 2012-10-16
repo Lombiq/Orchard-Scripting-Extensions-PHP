@@ -1,7 +1,7 @@
 ﻿Name: Orchard Scripting Extensions: PHP
 AntiForgery: enabled
 Author: The Orchard Hungary Team
-Website: http://orchardphpscripting.codeplex.com
+Website: http://orchardscriptingphp.codeplex.com
 Version: 1.0
 OrchardVersion: 1.5
 Description: Enables Orchard scripting through PHP. Uses Phalanger (http://phalanger.codeplex.com/).
