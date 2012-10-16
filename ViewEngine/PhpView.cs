@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using Orchard.Environment.Extensions;
 using OrchardHUN.Scripting.Models;
 using OrchardHUN.Scripting.Php.Services;
+using System.Collections.Generic;
 
 namespace OrchardHUN.Scripting.Php.ViewEngine
 {
@@ -28,7 +29,9 @@ namespace OrchardHUN.Scripting.Php.ViewEngine
             var filename = context.HttpContext.Server.MapPath(ViewPath);
 
             var scope = new ScriptScopeImpl(ViewPath);
-            scope.SetVariable("_VIEW_CONTEXT", context);
+            var orchardGlobal = new Dictionary<string, object>();
+            orchardGlobal["VIEW_CONTEXT"] = context;
+            scope.SetVariable("_ORCHARD", orchardGlobal);
 
             var output = _phpRuntime.ExecuteFile(filename, scope);
             writer.Write(output);
