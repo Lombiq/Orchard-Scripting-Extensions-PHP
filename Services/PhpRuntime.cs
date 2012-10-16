@@ -85,16 +85,16 @@ namespace OrchardHUN.Scripting.Php.Services
                     {
                         using (scriptContext.Output = new StreamWriter(scriptContext.OutputStream))
                         {
-                            var orchardGlobal = new Dictionary<string, object>();
+                            var orchardGlobal = new Dictionary<string, dynamic>();
                             orchardGlobal["WORK_CONTEXT"] = workContext;
                             orchardGlobal["ORCHARD_SERVICES"] = workContext.Resolve<IOrchardServices>();
 
                             var existing = scope.GetVariable("_ORCHARD");
                             if (existing != null)
                             {
-                                if (!(existing is IDictionary<string, object>)) throw new ArgumentException("The $_ORCHARD superglobal variable should be an IDictionary<string, object>.");
+                                if (!(existing is IDictionary<string, object>)) throw new ArgumentException("The $_ORCHARD superglobal variable should be an IDictionary<string, dynamic>.");
 
-                                var existingDictionary = existing as IDictionary<string, object>;
+                                var existingDictionary = existing as IDictionary<string, dynamic>;
                                 foreach (var existingItem in existingDictionary)
                                 {
                                     orchardGlobal[existingItem.Key] = existingItem.Value;

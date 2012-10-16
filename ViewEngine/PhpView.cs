@@ -29,7 +29,7 @@ namespace OrchardHUN.Scripting.Php.ViewEngine
             var filename = context.HttpContext.Server.MapPath(ViewPath);
 
             var scope = new ScriptScopeImpl(ViewPath);
-            var orchardGlobal = new Dictionary<string, object>();
+            var orchardGlobal = new Dictionary<string, dynamic>();
             orchardGlobal["VIEW_CONTEXT"] = context;
             scope.SetVariable("_ORCHARD", orchardGlobal);
 
