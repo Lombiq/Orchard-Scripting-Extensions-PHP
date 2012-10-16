@@ -92,6 +92,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Placement.info" />
     <Content Include="Web.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\Web.config" />
@@ -112,11 +113,16 @@
       <Project>{C8715027-A8C5-45DC-8A22-FB713AF14468}</Project>
       <Name>OrchardHUN.Scripting</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Piedone.HelpfulLibraries\Piedone.HelpfulLibraries.csproj">
+      <Project>{EA61AD10-39D6-41A9-B12B-227F50C54158}</Project>
+      <Name>Piedone.HelpfulLibraries</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <Content Include="Views\DisplayTemplates\Pages\Admin\TestbedPhp.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Drivers\Pages\Admin\ScriptingAdminTestbedPartDriver.cs" />
     <Compile Include="ViewEngine\PhpView.cs" />
     <Compile Include="ViewEngine\PhpViewEngine.cs" />
     <Compile Include="ViewEngine\PhpViewEngineProvider.cs" />

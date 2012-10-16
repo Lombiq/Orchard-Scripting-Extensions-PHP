@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
 using Orchard.Core.Common;
+using OrchardHUN.Scripting.Services;
 
 namespace OrchardHUN.Scripting.Php.Services
 {

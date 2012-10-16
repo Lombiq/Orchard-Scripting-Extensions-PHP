@@ -1,0 +1,21 @@
+﻿@model OrchardHUN.Scripting.Models.Pages.Admin.ScriptingAdminTestbedPart
+
+@using (Script.Foot())
+{
+    <script type="text/javascript">
+        (function ($) {
+            var editor = ace.edit("orchardhun-scripting-testbed-editor");
+            var engine = $("#@Html.FieldIdFor(m => m.SelectedEngine)");
+
+            var setPhpEditorIfSelected = function() {
+                if (engine.val() == "PHP") editor.getSession().setMode("ace/mode/php");
+            };
+
+            setPhpEditorIfSelected();
+
+            engine.change(function (e) {
+                setPhpEditorIfSelected();
+            });
+        })(jQuery);
+    </script>
+}
