@@ -41,12 +41,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="php4ts">
-      <HintPath>Libs\php4ts.dll</HintPath>
-    </Reference>
-    <Reference Include="php5ts">
-      <HintPath>Libs\php5ts.dll</HintPath>
-    </Reference>
     <Reference Include="PhpNetClassLibrary">
       <HintPath>Libs\PhpNetClassLibrary.dll</HintPath>
     </Reference>
