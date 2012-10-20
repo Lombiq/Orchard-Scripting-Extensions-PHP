@@ -20,6 +20,10 @@
     <UpgradeBackupLocation />
     <TargetFrameworkProfile />
     <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -117,6 +121,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Drivers\ScriptPartDriver.cs" />
+    <Compile Include="IPhpRuntimeEventHandler.cs" />
     <Compile Include="ViewEngine\PhpView.cs" />
     <Compile Include="ViewEngine\PhpViewEngine.cs" />
     <Compile Include="ViewEngine\PhpViewEngineProvider.cs" />
