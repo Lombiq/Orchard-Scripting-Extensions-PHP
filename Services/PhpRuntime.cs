@@ -66,16 +66,14 @@ namespace OrchardHUN.Scripting.Php.Services
         {
             try
             {
-                // Just selecting classes to load assemblies into the runtime.
                 // Other .NET assemblies can be loaded the same way, so PHP code can access them.
                 var assemblyLoader = ApplicationContext.Default.AssemblyLoader;
                 assemblyLoader.Load(typeof(PhpHash).Assembly, null); // PhpNetClassLibrary.dll
-                assemblyLoader.Load(typeof(string).Assembly, null); // mscorlib.dll
-                assemblyLoader.Load(typeof(Uri).Assembly, null); // System.dll
-                assemblyLoader.Load(typeof(HttpContext).Assembly, null); // System.Web.dll
-                assemblyLoader.Load(typeof(AjaxHelper).Assembly, null); // System.Web.Mvc.dll
-                assemblyLoader.Load(typeof(Shapes).Assembly, null); // Orchard Core
-                assemblyLoader.Load(typeof(WorkContext).Assembly, null); // Orchard Framework
+
+                foreach (var assembly in scope.Assemblies)
+                {
+                    assemblyLoader.Load(assembly, null);
+                }
 
                 var workContext = _wcaWork.Value.GetContext();
 
