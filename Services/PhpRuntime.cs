@@ -17,6 +17,7 @@ namespace OrchardHUN.Scripting.Php.Services
     public class PhpRuntime : IPhpRuntime
     {
         private readonly Work<IWorkContextAccessor> _wcaWork;
+        private readonly IPhpRuntimeEventHandler _eventHandler;
 
         public string Engine
         {
@@ -24,9 +25,10 @@ namespace OrchardHUN.Scripting.Php.Services
         }
 
 
-        public PhpRuntime(Work<IWorkContextAccessor> wcaWork)
+        public PhpRuntime(Work<IWorkContextAccessor> wcaWork, IPhpRuntimeEventHandler eventHandler)
         {
             _wcaWork = wcaWork;
+            _eventHandler = eventHandler;
         }
 
         public dynamic ExecuteExpression(string expression, ScriptScope scope)
@@ -110,7 +112,9 @@ namespace OrchardHUN.Scripting.Php.Services
                             // Setting globals like this only works for primitive types.
                             // Operators.SetVariable(scriptContext, null, "test", "");
 
+                            _eventHandler.BeforeExecution(new BeforePhpExecutionContext(scope, scriptContext));
                             executor(requestContext);
+                            _eventHandler.AfterExecution(new AfterPhpExecutionContext(scope, scriptContext));
 
                             foreach (var variable in scriptContext.GlobalVariables)
                             {
