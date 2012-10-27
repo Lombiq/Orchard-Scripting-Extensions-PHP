@@ -89,6 +89,7 @@ namespace OrchardHUN.Scripting.Php.Services
                             var orchardGlobal = new Dictionary<string, dynamic>();
                             orchardGlobal["WORK_CONTEXT"] = workContext;
                             orchardGlobal["ORCHARD_SERVICES"] = workContext.Resolve<IOrchardServices>();
+                            orchardGlobal["LAYOUT"] = new PhpShape(workContext.Layout);
 
                             var existing = scope.GetVariable("_ORCHARD");
                             if (existing != null)
