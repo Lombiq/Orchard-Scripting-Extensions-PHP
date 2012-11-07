@@ -6,7 +6,7 @@ using OrchardHUN.Scripting.EventHandlers;
 
 namespace OrchardHUN.Scripting.Php.Services
 {
-    public class PhpAseemblyLoader : IScriptingEventHandler
+    public class PhpAssemblyLoader : IScriptingEventHandler
     {
         public void BeforeExecution(BeforeExecutionContext context)
         {

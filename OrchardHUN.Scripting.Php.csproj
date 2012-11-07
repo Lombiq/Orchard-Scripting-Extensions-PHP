@@ -122,7 +122,7 @@
   <ItemGroup>
     <Compile Include="Drivers\ScriptPartDriver.cs" />
     <Compile Include="IPhpRuntimeEventHandler.cs" />
-    <Compile Include="Services\PhpAseemblyLoader.cs" />
+    <Compile Include="Services\PhpAssemblyLoader.cs" />
     <Compile Include="Services\PhpShape.cs" />
     <Compile Include="ViewEngine\PhpView.cs" />
     <Compile Include="ViewEngine\PhpViewEngine.cs" />
