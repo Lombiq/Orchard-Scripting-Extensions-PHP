@@ -39,7 +39,7 @@ namespace OrchardHUN.Scripting.Php.Services
                     {
                         DynamicCode.Eval(
                             expression,
-                            false,      // phalanger internal stuff
+                            false,      // Phalanger internal stuff
                             requestContext.ScriptContext,
                             null,       // local variables
                             null,       // reference to "$this"
@@ -68,15 +68,6 @@ namespace OrchardHUN.Scripting.Php.Services
         {
             try
             {
-                // Other .NET assemblies can be loaded the same way, so PHP code can access them.
-                var assemblyLoader = ApplicationContext.Default.AssemblyLoader;
-                assemblyLoader.Load(typeof(PhpHash).Assembly, null); // PhpNetClassLibrary.dll
-
-                foreach (var assembly in scope.Assemblies)
-                {
-                    assemblyLoader.Load(assembly, null);
-                }
-
                 var workContext = _wcaWork.Value.GetContext();
 
                 using (var requestContext = RequestContext.Initialize(ApplicationContext.Default, workContext.HttpContext.ApplicationInstance.Context))
@@ -86,6 +77,14 @@ namespace OrchardHUN.Scripting.Php.Services
                     {
                         using (scriptContext.Output = new StreamWriter(scriptContext.OutputStream))
                         {
+                            var assemblyLoader = scriptContext.ApplicationContext.AssemblyLoader;
+                            assemblyLoader.Load(typeof(PhpHash).Assembly, null); // PhpNetClassLibrary.dll
+
+                            foreach (var assembly in scope.Assemblies)
+                            {
+                                assemblyLoader.Load(assembly, null);
+                            }
+
                             var orchardGlobal = new Dictionary<string, dynamic>();
                             orchardGlobal["WORK_CONTEXT"] = workContext;
                             orchardGlobal["ORCHARD_SERVICES"] = workContext.Resolve<IOrchardServices>();

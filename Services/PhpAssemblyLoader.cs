@@ -6,16 +6,14 @@ using OrchardHUN.Scripting.EventHandlers;
 
 namespace OrchardHUN.Scripting.Php.Services
 {
-    public class PhpAssemblyLoader : IScriptingEventHandler
+    public class PhpAssemblyLoader : IPhpRuntimeEventHandler
     {
-        public void BeforeExecution(BeforeExecutionContext context)
+        public void BeforeExecution(BeforePhpExecutionContext context)
         {
-            if (context.Engine != "PHP") return;
-
-            context.Scope.LoadAssembly(typeof(PhpShape).Assembly);
+            context.Context.ApplicationContext.AssemblyLoader.Load(typeof(PhpShape).Assembly, null);
         }
 
-        public void AfterExecution(AfterExecutionContext context)
+        public void AfterExecution(AfterPhpExecutionContext context)
         {
         }
     }
