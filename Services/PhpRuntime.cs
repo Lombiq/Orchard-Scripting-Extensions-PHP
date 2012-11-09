@@ -16,12 +16,13 @@ namespace OrchardHUN.Scripting.Php.Services
 {
     public class PhpRuntime : IPhpRuntime
     {
+        private readonly IEngineDescriptor _descriptor = new EngineDescriptor("PHP", new Orchard.Localization.LocalizedString("PHP"));
         private readonly Work<IWorkContextAccessor> _wcaWork;
         private readonly IPhpRuntimeEventHandler _eventHandler;
 
-        public string Engine
+        public IEngineDescriptor Descriptor
         {
-            get { return "PHP"; }
+            get { return _descriptor; }
         }
 
 
@@ -30,6 +31,7 @@ namespace OrchardHUN.Scripting.Php.Services
             _wcaWork = wcaWork;
             _eventHandler = eventHandler;
         }
+
 
         public dynamic ExecuteExpression(string expression, ScriptScope scope)
         {
