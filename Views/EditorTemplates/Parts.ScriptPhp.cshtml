@@ -4,17 +4,10 @@
 {
     <script type="text/javascript">
         (function ($) {
-            var editor = ace.edit("orchardhun-scripting-editor");
-            var engine = $("#@Html.FieldIdFor(m => m.Engine)");
+            $(document).on("selectedEngineChanged.ScriptingExtensions", function (values) {
+                if (values.engine != "PHP") return;
 
-            var setPhpEditorIfSelected = function () {
-                if (engine.val() == "PHP") editor.getSession().setMode("ace/mode/php");
-            };
-
-            setPhpEditorIfSelected();
-
-            engine.change(function (e) {
-                setPhpEditorIfSelected();
+                values.editor.getSession().setMode("ace/mode/php");
             });
         })(jQuery);
     </script>
