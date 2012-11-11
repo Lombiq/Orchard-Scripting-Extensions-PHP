@@ -8,6 +8,10 @@
                 if (values.engine != "PHP") return;
 
                 values.editor.getSession().setMode("ace/mode/php");
+                values.help.sample.getSession().setMode("ace/mode/php");
+
+                values.help.hint.text("@T("Enter a pure PHP expression without <?php and ?> tags.")");
+                values.help.sample.getSession().setValue("echo \"Hello PHP Scripting!\";");
             });
         })(jQuery);
     </script>
