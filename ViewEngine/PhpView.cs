@@ -32,7 +32,7 @@ namespace OrchardHUN.Scripting.Php.ViewEngine
             var scope = new ScriptScopeImpl(ViewPath);
             var orchardGlobal = new Dictionary<string, dynamic>();
             orchardGlobal["VIEW_CONTEXT"] = context;
-            orchardGlobal["MODEL"] = new PhpShape(context.ViewData.Model);
+            orchardGlobal["MODEL"] = new StaticShape(context.ViewData.Model);
             scope.SetVariable("_ORCHARD", orchardGlobal);
 
             var output = _phpRuntime.ExecuteFile(filename, scope);
