@@ -7,11 +7,13 @@
             $(document).on("selectedEngineChanged.ScriptingExtensions", function (values) {
                 if (values.engine != "PHP") return;
 
-                values.editor.getSession().setMode("ace/mode/php");
-                values.help.sample.getSession().setMode("ace/mode/php");
+                values.editor.getSession().setMode({ path: "ace/mode/php", inline: true }); // Awesomeness by nightwing: https://github.com/ajaxorg/ace/issues/1142
+
+                var sampleEditorSession = values.help.sample.getSession();
+                sampleEditorSession.setMode({ path: "ace/mode/php", inline: true });
+                sampleEditorSession.setValue("echo \"Hello PHP Scripting!\";");
 
                 values.help.hint.text("@T("Enter a pure PHP expression without <?php and ?> tags.")");
-                values.help.sample.getSession().setValue("echo \"Hello PHP Scripting!\";");
             });
         })(jQuery);
     </script>
