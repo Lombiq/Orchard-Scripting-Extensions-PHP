@@ -1,5 +1,4 @@
-﻿using OrchardHUN.Scripting.Models;
-using OrchardHUN.Scripting.Services;
+﻿using OrchardHUN.Scripting.Services;
 
 namespace OrchardHUN.Scripting.Php.Services
 {
