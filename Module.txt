@@ -1,6 +1,6 @@
 ﻿Name: Orchard Scripting Extensions: PHP
 AntiForgery: enabled
-Author: The Orchard Hungary Team
+Author: The Orchard Hungary Team / Lombiq
 Website: http://orchardscriptingphp.codeplex.com
 Version: 1.0
 OrchardVersion: 1.6
