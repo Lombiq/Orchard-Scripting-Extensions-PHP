@@ -7,8 +7,8 @@ using Orchard.Environment;
 using Orchard.Environment.Extensions;
 using Orchard.Logging;
 using Orchard.Mvc.ViewEngines;
-using Orchard.Mvc.ViewEngines.WebForms;
 using OrchardHUN.Scripting.Php.Services;
+using Orchard.Mvc.ViewEngines.ThemeAwareness;
 
 namespace OrchardHUN.Scripting.Php.ViewEngine
 {
