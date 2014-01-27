@@ -3,7 +3,7 @@ AntiForgery: enabled
 Author: The Orchard Hungary Team / Lombiq
 Website: http://orchardscriptingphp.codeplex.com
 Version: 1.0
-OrchardVersion: 1.6
+OrchardVersion: 1.8
 Description: Enables Orchard scripting through PHP. Uses Phalanger (http://phalanger.codeplex.com/).
 Features:
     OrchardHUN.Scripting.Php:
